@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quick fallback: provide the missing Material3 XML theme so AAPT can link resources.
+         We inherit from a platform theme (DeviceDefault DayNight) to avoid adding library deps.
+         This is a minimal, safe fix so your CI stops failing; you can replace with a proper
+         MaterialComponents or Material3 theme later if desired. -->
+
+    <style name="Theme.Material3.DayNight" parent="Theme.DeviceDefault.DayNight" />
+</resources>
