@@ -62,10 +62,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.material:material-icons-core")  // ← NEW: ContentCopy icon (HomeScreen)
-
-    // Add Material Components for XML themes / platform widgets
-    implementation("com.google.android.material:material:1.9.0")
 
     // Coroutines & Flow
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")  // 1.7.3 → 1.8.1
@@ -79,7 +75,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
 }
 
-// ────────────────────────────────────────────────────────────────�[...]
+// ─────────────────────────────────────────────────────────────────────────────
 // Task: downloadProotBinary
 // Downloads the proot ARM64 static binary from Termux packages and places it
 // in src/main/assets/proot — required by ProotInstaller.step1.
@@ -93,7 +89,7 @@ dependencies {
 //   zstd (only if termux switched to data.tar.zst format):
 //     macOS: brew install zstd
 //     Linux: sudo apt install zstd
-// ────────────────────────────────────────────────────────────────�[...]
+// ─────────────────────────────────────────────────────────────────────────────
 
 tasks.register("downloadProotBinary") {
     description = "Downloads proot aarch64 static binary from Termux packages into assets"
@@ -111,7 +107,7 @@ tasks.register("downloadProotBinary") {
 
         val tmp  = temporaryDir.also { it.mkdirs() }
         val dest = prootAsset.absolutePath
-        val d    = "$"    // dollar sign — Kotlin triple-quote can't include $ directly
+        val d    = "\$"    // dollar sign — Kotlin triple-quote can't include $ directly
 
         exec {
             isIgnoreExitValue = false
