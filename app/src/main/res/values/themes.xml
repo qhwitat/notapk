@@ -2,7 +2,7 @@
 <resources>
     <!-- Theme.DeviceDefault.NoTitleBar — مضمون على كل Android 8+ بدون dependencies إضافية.
          Compose يتحكم في كل الـ UI داخله، هذا فقط لـ window container. -->
-    <style name="Theme.NotyetTerrariaHost" parent="android:Theme.DeviceDefault.NoTitleBar">
+    <style name="Theme.NotyetTerrariaHost" parent="Theme.Material3.DayNight.NoTitleBar">
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
