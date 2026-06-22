@@ -50,11 +50,10 @@ jobs:
           restore-keys: gradle-
 
       # 5 — Android SDK: قبول التراخيص + تثبيت android-35
-      #     (ubuntu-latest يأتي بـ SDK لكن قد ينقصه android-35)
+      #     (تم إزالة 2>/dev/null لمنع اختناق العملية)
       - name: Accept Android SDK licenses
         run: |
-          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager \
-            --licenses 2>/dev/null || true
+          yes "y" | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
 
       - name: Install Android Platform 35 + Build Tools
         run: |
@@ -64,7 +63,6 @@ jobs:
             "platform-tools"
 
       # 6 — البناء
-      #     downloadProotBinary سيتخطى تلقائياً (proot موجود في assets، 229KB > 100KB)
       - name: Build Debug APK
         run: |
           ./gradlew assembleDebug \
@@ -75,10 +73,8 @@ jobs:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
       # 7 — رفع الـ APK كـ artifact يمكن تحميله
-      - name: Upload Debug APK
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: notyet-terraria-host-v0.1-debug
+          name: Debug-APK
           path: app/build/outputs/apk/debug/*.apk
-          retention-days: 30
-          if-no-files-found: error
