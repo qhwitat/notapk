@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base theme for the Activity window — Compose handles all UI inside it.
+         Using a plain Material Light base keeps it compatible with API 26+
+         without needing the extra com.google.android.material dependency. -->
+    <style name="Theme.NotyetTerrariaHost" parent="android:Theme.Material.Light.NoTitleBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
